@@ -25,10 +25,10 @@ FLIP_COMMANDS = ('flip', 'coin', 'random')
 DECK_COMMANDS = ('deck', 'cards', 'shuffle')
 HELP_COMMANDS = ('help', 'what', 'huh', 'um')
 
-HEARTS = ('heart', 'hearts', '<3', '❤', '❤️', '💙', '💚', '💜', '💛', 'valentine', 'valentines')
-CROSSES = ('cross', 'crosses', 'x', '❌', '💔', 'rejection', 'rejections')
-RINGS = ('ring', 'rings', 'o', '0', '⭕', '💍', 'proposal', 'proposals')
-SKULLS = ('skull', 'skulls', 'death', '💀', '🔪', 'assassination', 'assassinations')
+HEARTS = ('heart', 'hearts', '<3', 'valentine', 'valentines')
+CROSSES = ('cross', 'crosses', 'x', '❌', 'rejection', 'rejections')
+RINGS = ('ring', 'rings', 'o', '0', '⭕', 'proposal', 'proposals')
+SKULLS = ('skull', 'skulls', 'death', 'assassination', 'assassinations')
 
 SUITS = ('Hearts', 'Spades', 'Diamonds', 'Clubs')
 VALUES = ('King', 'Queen', 'Jack', 'Ten', 'Nine', 'Eight', 'Seven', 'Six', 'Five', 'Four', 'Three', 'Two', 'Ace')
@@ -234,8 +234,8 @@ async def on_message(message):
                         else:
                             # had issues in the past with emotes, the bot should be better about that now
                             await channel.send("Emote not found. The four kinds of emotes used in this game " +
-                                               "are Hearts (:heart:), Crosses (:x:), Rings (:o:), and Skulls (:skull:). " +
-                                               "You can also refer to them by name, or as valentines, rejections, "+
+                                               "are Hearts, Crosses, Rings, and Skulls. You can also use ascii " +
+                                               "symbols (such as <3), or refer to them as valentines, rejections, "+
                                                "proposals and assassinations if you'd prefer.")
                     else:
                         await channel.send("First user not found.")
