@@ -370,6 +370,9 @@ async def on_message(message):
                         del serverdata[guild_id][0][command[1]]
                         serverdata[guild_id][3] = True
                         await channel.send("Role cleared.")
+                        
+                    elif command[1] in ARCHETYPES:
+                        await channel.send("Role not currently assigned.")
                     
                     else:
                         msg = ("Syntax error. Use `# clear [list/mailbox]` to clear the server's player list or " +
@@ -422,14 +425,17 @@ async def on_message(message):
                     for key in serverdata[guild_id][0]:
                         playerlist.append((key.title(), serverdata[guild_id][0][key]['nick'].title()))
                     
-                    random.shuffle(playerlist)
-                    msg = ""
-                    
-                    for i in playerlist:
-                        msg += i[0] + " " + i[1] + " > "
-                    msg += playerlist[0][0] + " " + playerlist[0][1]
-                    await channel.send(msg)
-                    
+                    if len(playerlist) > 0:
+                        random.shuffle(playerlist)
+                        msg = ""
+                        
+                        for i in playerlist:
+                            msg += i[0] + " " + i[1] + " > "
+                        msg += playerlist[0][0] + " " + playerlist[0][1]
+                        await channel.send(msg)
+                        
+                    else:
+                        await channel.send("No players currently on this server. Use `# assign` to add some!")
             else:
                 await channel.send("Sorry, this command isn't available in DMs.")
             
@@ -450,7 +456,7 @@ async def on_message(message):
         elif command[0] in HELP_COMMANDS:
             msg = ("Cont.exe is a bot designed to help run online games of Jay Dragon's excellent post-apoc " +
                    "pop punk political dating sim Flower Court (jdragsky.itch.io/flower-court). It was primarily " +
-                   "written by Rathayibacter, with the help of MsPelligrino who contributed the `# order` function." +
+                   "written by Rathayibacter, with the help of MsPelligrino who contributed the `# order` function. " +
                    "Thank you again!\nIf you have any issues, don't hesitate to contact me on twitter at " +
                    "@Rathayibacter.\n\n**COMMANDS**" +
                    "\n`# assign` - Assigns a role to a player. Syntax is `# assign [role] (player)`, leaving the " +
