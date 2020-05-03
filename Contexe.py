@@ -8,8 +8,7 @@ issues with the bot, you can hit me up on twitter at @Rathayibacter. Have fun!
 '''
 
 import discord, random, json
-
-TOKEN = '[censored]'
+from config import TOKEN
 
 ARCHETYPES = ('prinxarch', 'infante', 'doxe', 'contex', 'stranger', 'courtesan', 'cinderella', 'dignitary',
               'baronne', 'knight', 'dowager', 'tycoon')
