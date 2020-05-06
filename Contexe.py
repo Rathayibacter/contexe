@@ -185,13 +185,15 @@ async def on_message(message):
                                     serverdata[command[1]][1].append(recipient[0] + ' ' + recipient[1] +
                                                                      ' was sent a Valentine (:heart:) from ' +
                                                                      sender[0] + ' ' + sender[1] + '.')
-                                    await channel.send("Message sent.")
+                                    await channel.send('Sent ' + recipient[0] + ' ' + recipient[1] +
+                                                       ' a Valentine (:heart:) from ' + sender[0] + ' ' + sender[1] + '.')
                                     
                                 elif sender:
                                     serverdata[command[1]][1].append(recipient[0] + ' ' + recipient[1] +
                                                                      ' was sent a Rejection (:x:) from ' +
                                                                      sender[0] + ' ' + sender[1] + '.')
-                                    await channel.send("Message sent.")
+                                    await channel.send('Sent ' + recipient[0] + ' ' + recipient[1] +
+                                                       ' a Rejection (:x:) from ' + sender[0] + ' ' + sender[1] + '.')
                                     
                                 else:
                                     # if the player put something in the sender field that wasn't found,
@@ -203,13 +205,15 @@ async def on_message(message):
                                     serverdata[command[1]][1].append(recipient[0] + ' ' + recipient[1] +
                                                                      ' was sent a Valentine (:heart:) ' +
                                                                      'from an anonymous admirer.')
-                                    await channel.send("Message sent.")
+                                    await channel.send('Sent ' + recipient[0] + ' ' + recipient[1] +
+                                                       ' a Valentine (:heart:) from an anonymous admirer.')
                                     
                                 else:
                                     serverdata[command[1]][1].append(recipient[0] + ' ' + recipient[1] +
                                                                      ' was sent a Rejection (:x:) from ' +
                                                                      'an anonymous opponent.')
-                                    await channel.send("Message sent.")
+                                    await channel.send('Sent ' + recipient[0] + ' ' + recipient[1] +
+                                                       ' a Rejection (:x:) from an anonymous opponent.')
                             
                         elif command[3] in RINGS + SKULLS:
                             # the last round behaves differently, and we no longer need player input for the sender
@@ -219,12 +223,14 @@ async def on_message(message):
                                 serverdata[command[1]][1].append(recipient[0] + ' ' + recipient[1] +
                                                                  ' was sent a Proposal (:ring:) from '
                                                                  + sender[0] + ' ' + sender[1] + '.')
-                                await channel.send("Message sent.")
+                                await channel.send('Sent ' + recipient[0] + ' ' + recipient[1] +
+                                                   ' a Proposal (:ring:) from ' + sender[0] + ' ' + sender[1] + '.')
                                 
                             elif sender:
                                 serverdata[command[1]][1].append(recipient[0] + ' ' + recipient[1] +
                                                                  ' was sent an Assassination (:skull:).')
-                                await channel.send("Message sent.")
+                                await channel.send('Sent ' + recipient[0] + ' ' + recipient[1] +
+                                                   ' an Assassination (:skull:).')
                                 
                             else:
                                 # i don't anticipate this'll happen often, but it's good to have
